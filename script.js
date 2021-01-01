@@ -59,7 +59,8 @@ function reset(elementSel, countState) {
 function updateCountdown(elementSel, countState, event) {
    event.preventDefault();
    countState.countdownTitle = event.srcElement[0].value;
-   countState.countdownDate = event.srcElement[1].value;
+   const tempDateArray = event.srcElement[1].value.split('-');
+   countState.countdownDate = `${tempDateArray[1]}-${tempDateArray[2]}-${tempDateArray[0]}`;
 
    // Store state on local storage
    const {countdownTitle, countdownDate} = {...countState};
